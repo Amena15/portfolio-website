@@ -290,13 +290,13 @@ document.getElementById('sendMessageBtn').addEventListener('click', function(e) 
   }
 });
 
-// Improved menu toggle
+// Menu toggle
 function myMenuFunction() {
   document.getElementById("myNavMenu").classList.toggle("responsive");
 }
 
 
-// Add this to your main.js
+// Contact Form Handling
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   
@@ -304,46 +304,43 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const status = document.getElementById('formStatus');
   const button = form.querySelector('button[type="submit"]');
   
-  // Get form values
-  const data = {
-      name: document.getElementById('contactName').value,
-      email: document.getElementById('contactEmail').value,
-      message: document.getElementById('contactMessage').value
-  };
-  
-  // UI feedback
+  // UI Feedback
   button.disabled = true;
   button.innerHTML = 'Sending... <i class="uil uil-spinner-alt uil-spin"></i>';
   status.textContent = '';
-  
+  status.style.color = '';
+
   try {
-      // Replace with your actual endpoint
-      const response = await fetch('https://your-api-endpoint.com/send', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-      });
+      const formData = new FormData(form);
       
+      // Send to Formspree
+      const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+              'Accept': 'application/json'
+          }
+      });
+
       if (response.ok) {
           status.textContent = 'Message sent successfully!';
           status.style.color = 'green';
           form.reset();
       } else {
-          throw new Error('Network response was not ok');
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to send');
       }
   } catch (error) {
-      status.textContent = 'Failed to send message. Please try again later.';
-      status.style.color = 'red';
       console.error('Error:', error);
+      status.textContent = 'Failed to send. Please email me directly at Amena_mohammed15@outlook.com';
+      status.style.color = 'red';
   } finally {
       button.disabled = false;
       button.innerHTML = 'Send Message <i class="uil uil-message"></i>';
   }
 });
 
-// Add to your main.js
+
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
 window.addEventListener('scroll', () => {

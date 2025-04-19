@@ -171,31 +171,33 @@
 <section class="section" id="contact">
     <div class="top-header">
         <h1>Contact Me</h1>
-        <span>If you have a project in mind, please feel free to reach out.</span>
+        <span>Get in touch for opportunities or collaborations</span>
     </div>
     <div class="row">
         <div class="col">
             <div class="contact-info">
-                <h2>Connect With Me <i class="uil uil-corner-right-down"></i></h2>
-                <p><i class="uil uil-envelope"></i> Email: amena_mohammed15@outlook.com</p>
-                <p><i class="uil uil-phone"></i> Phone: +60 11 6223 7057</p>
+                <h2>Direct Contact <i class="uil uil-corner-right-down"></i></h2>
+                <p><i class="uil uil-envelope"></i> Email: Amena_mohammed15@outlook.com</p>
             </div>
         </div>
         <div class="col">
-            <!-- Updated contact form -->
-            <form id="contactForm" class="form-control">
+            <form action="https://formspree.io/f/xqaprejo" method="POST" id="contactForm" class="form-control">
                 <div class="form-inputs">
-                    <input type="text" id="contactName" class="input-field" placeholder="Your Name" required>
-                    <input type="email" id="contactEmail" class="input-field" placeholder="Your Email" required>
+                    <input type="text" name="name" id="contactName" class="input-field" placeholder="Your Name" required>
+                    <input type="email" name="_replyto" id="contactEmail" class="input-field" placeholder="Your Email" required>
                 </div>
                 <div class="text-area">
-                    <textarea id="contactMessage" placeholder="Your Message" required></textarea>
+                    <textarea name="message" id="contactMessage" placeholder="Your Message" required></textarea>
                 </div>
                 <div class="form-button">
                     <button type="submit" class="btn">Send Message <i class="uil uil-message"></i></button>
                 </div>
                 <div id="formStatus"></div>
+                <!-- Hidden Fields for Formspree -->
+                <input type="hidden" name="_to" value="Amena_mohammed15@outlook.com">
+                <input type="hidden" name="_subject" value="New Portfolio Message">
             </form>
+        </div>
     </div>
 </section>
 
