@@ -178,27 +178,34 @@
             </div>
         </div>
         <div class="col">
-            <form action="https://formspree.io/f/xyzwlalq" method="POST" class="form-control">
+            <form id="contactForm" action="https://formspree.io/f/xyzwlalq" method="POST" class="form-control">
                 <div class="form-inputs">
-                  <input type="text" name="name" class="input-field" placeholder="Full Name" required>
-                  <input type="email" name="email" class="input-field" placeholder="Email" required>
+                    <input type="text" name="name" class="input-field" placeholder="Full Name" required>
+                    <input type="email" name="_replyto" class="input-field" placeholder="Email" required>
                 </div>
                 <div class="form-inputs">
-                  <input type="tel" name="phone" class="input-field" placeholder="Phone Number" required>
-                  <input type="text" name="subject" class="input-field" placeholder="Subject" required>
+                    <input type="tel" name="phone" class="input-field" placeholder="Phone Number">
+                    <input type="text" name="_subject" class="input-field" placeholder="Subject" required>
                 </div>
                 <div class="text-area">
-                  <textarea name="message" placeholder="Your Message" required></textarea>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
                 </div>
-                <div class="form-button">
-                  <input type="submit" value="Send Message" class="btn">
-                </div>
-              
-                <!-- Optional Formspree fields -->
-                <input type="hidden" name="_subject" value="New Portfolio Message">
-                <input type="hidden" name="_template" value="table">
+                
+                <!-- Formspree Hidden Fields -->
+                <input type="hidden" name="_language" value="en">
+                <input type="hidden" name="_format" value="plain">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
                 <input type="hidden" name="_captcha" value="false">
-              </form>
+                
+                <div class="form-status" id="formStatus"></div>
+                
+                <div class="form-button">
+                    <button type="submit" class="btn" id="submitBtn">
+                        <span id="btnText">Send Message</span>
+                        <div id="btnLoader" class="loader" style="display:none;"></div>
+                    </button>
+                </div>
+            </form>
               
               
         </div>        

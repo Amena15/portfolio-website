@@ -386,3 +386,53 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const form = e.target;
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const btnLoader = document.getElementById('btnLoader');
+  const formStatus = document.getElementById('formStatus');
+  
+  // Show loading state
+  btnText.textContent = 'Sending...';
+  btnLoader.style.display = 'inline-block';
+  submitBtn.disabled = true;
+  formStatus.style.display = 'none';
+  
+  try {
+      const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+              'Accept': 'application/json'
+          }
+      });
+      
+      if (response.ok) {
+          // Success state
+          formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
+          formStatus.className = 'form-status success';
+          form.reset();
+      } else {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to send message');
+      }
+  } catch (error) {
+      console.error('Error:', error);
+      formStatus.textContent = 'Error sending message. Please try again or email me directly at your@email.com';
+      formStatus.className = 'form-status error';
+  } finally {
+      // Reset button state
+      btnText.textContent = 'Send Message';
+      btnLoader.style.display = 'none';
+      submitBtn.disabled = false;
+      formStatus.style.display = 'block';
+      
+      // Hide status message after 5 seconds
+      setTimeout(() => {
+          formStatus.style.display = 'none';
+      }, 5000);
+  }
+});
