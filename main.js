@@ -271,7 +271,7 @@ document.querySelectorAll('.social_icons a').forEach(icon => {
   });
 });
 
-// Form submission
+/* Form submission
 document.getElementById('sendMessageBtn').addEventListener('click', function(e) {
   e.preventDefault();  // Stop default submission to validate first
 
@@ -289,7 +289,8 @@ document.getElementById('sendMessageBtn').addEventListener('click', function(e) 
   } else {
       alert('Please fill all fields before sending.');
   }
-});
+}); 
+*/
 
 // Menu toggle
 function myMenuFunction() {
