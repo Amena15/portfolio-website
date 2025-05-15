@@ -386,53 +386,53 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  
-  const form = e.target;
-  const submitBtn = document.getElementById('submitBtn');
-  const btnText = document.getElementById('btnText');
-  const btnLoader = document.getElementById('btnLoader');
-  const formStatus = document.getElementById('formStatus');
-  
-  // Show loading state
-  btnText.textContent = 'Sending...';
-  btnLoader.style.display = 'inline-block';
-  submitBtn.disabled = true;
-  formStatus.style.display = 'none';
-  
-  try {
-      const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: {
-              'Accept': 'application/json'
-          }
-      });
-      
-      if (response.ok) {
-          // Success state
-          formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
-          formStatus.className = 'form-status success';
-          form.reset();
-      } else {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to send message');
-      }
-  } catch (error) {
-      console.error('Error:', error);
-      formStatus.textContent = 'Error sending message. Please try again or email me directly at your@email.com';
-      formStatus.className = 'form-status error';
-  } finally {
-      // Reset button state
-      btnText.textContent = 'Send Message';
-      btnLoader.style.display = 'none';
-      submitBtn.disabled = false;
-      formStatus.style.display = 'block';
-      
-      // Hide status message after 5 seconds
-      setTimeout(() => {
-          formStatus.style.display = 'none';
-      }, 5000);
-  }
+const form = document.getElementById('contactForm');
+const status = document.querySelector('.form-status');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Disable submit button
+    const submitBtn = form.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        const responseData = await response.json();
+        console.log("Formspree response:", responseData);
+        
+        if (response.ok) {
+            status.innerHTML = 'Thanks for your submission!';
+            status.style.color = 'green';
+            form.reset();
+        } else {
+            throw new Error(responseData.error || 'Form submission failed');
+        }
+    } catch (error) {
+        console.error('Submission error:', error);
+        status.innerHTML = `Error: ${error.message}`;
+        status.style.color = 'red';
+        
+        // Fallback: Open mail client
+        const mailto = `mailto:your@email.com?subject=Form Failed&body=${encodeURIComponent(
+            `Name: ${form.name.value}\nEmail: ${form._replyto.value}\nMessage: ${form.message.value}`
+        )}`;
+        status.innerHTML += `<br>Alternatively, <a href="${mailto}">email me directly</a>.`;
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send';
+        
+        // Hide status after 5 seconds
+        setTimeout(() => {
+            status.textContent = '';
+        }, 5000);
+    }
 });

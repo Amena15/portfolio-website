@@ -178,33 +178,21 @@
             </div>
         </div>
         <div class="col">
-            <form id="contactForm" action="https://formspree.io/f/xyzwlalq" method="POST" class="form-control">
+            <form id="contactForm" action="https://formspree.io/f/xyzwlalq" method="POST">
+                <!-- Add honeypot field for spam prevention -->
+                <input type="text" name="_gotcha" style="display:none">
+                
                 <div class="form-inputs">
-                    <input type="text" name="name" class="input-field" placeholder="Full Name" required>
-                    <input type="email" name="_replyto" class="input-field" placeholder="Email" required>
-                </div>
-                <div class="form-inputs">
-                    <input type="tel" name="phone" class="input-field" placeholder="Phone Number">
-                    <input type="text" name="_subject" class="input-field" placeholder="Subject" required>
-                </div>
-                <div class="text-area">
-                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="_replyto" placeholder="Email" required>
                 </div>
                 
-                <!-- Formspree Hidden Fields -->
-                <input type="hidden" name="_language" value="en">
+                <input type="hidden" name="_subject" value="New Portfolio Message">
                 <input type="hidden" name="_format" value="plain">
-                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-                <input type="hidden" name="_captcha" value="false">
                 
-                <div class="form-status" id="formStatus"></div>
+                <button type="submit">Send</button>
                 
-                <div class="form-button">
-                    <button type="submit" class="btn" id="submitBtn">
-                        <span id="btnText">Send Message</span>
-                        <div id="btnLoader" class="loader" style="display:none;"></div>
-                    </button>
-                </div>
+                <div class="form-status"></div>
             </form>
               
               
