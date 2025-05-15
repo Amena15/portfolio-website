@@ -945,32 +945,28 @@ footer{
     display: none;
 }
 
-.form-status.success {
-    display: block;
-    background: #d4edda;
-    color: #155724;
-}
-
-.form-status.error {
-    display: block;
-    background: #f8d7da;
-    color: #721c24;
-}
-
-/* Loading Animation */
-.loader {
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255,255,255,0.3);
+form-status.success {
+    color: green;
+    margin-top: 10px;
+  }
+  .form-status.error {
+    color: red;
+    margin-top: 10px;
+  }
+  .loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top: 2px solid #333;
     border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-    margin-left: 10px;
-}
-
-@keyframes spin {
+    animation: spin 0.6s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  @keyframes spin {
     to { transform: rotate(360deg); }
-}
+  }
 
 /* Form Inputs */
 .input-field, textarea {

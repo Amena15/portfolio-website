@@ -423,12 +423,13 @@ document.getElementById('contactForm').addEventListener('submit', async function
     formStatus.textContent = ' Error sending message. Please try again later.';
     formStatus.className = 'form-status error';
   } finally {
-    // Reset UI state
+    // Reset button state
     btnText.textContent = 'Send Message';
     btnLoader.style.display = 'none';
     submitBtn.disabled = false;
     formStatus.style.display = 'block';
 
+    // Auto-hide status
     setTimeout(() => {
       formStatus.style.display = 'none';
     }, 5000);
