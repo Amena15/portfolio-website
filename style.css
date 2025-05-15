@@ -82,22 +82,84 @@ nav{
     transition: .3s;
     z-index: 100;
 }
-.nav-logo{
-   position: relative;
-   cursor: pointer;
+.nav-logo {
+    position: relative;
+    z-index: 1001;
 }
-.nav-name{
-    font-size: 30px;
-    font-weight: 600;
+
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.logo-main {
+    font-size: 1.8rem;
+    font-weight: 700;
     color: var(--text-color-third);
+    position: relative;
+    padding-right: 0.8em;
+    transition: all 0.3s ease;
 }
-.nav-logo span{
+
+.logo-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: var(--third-color);
+    border-radius: 50%;
     position: absolute;
-    top: -15px;
-    right: -20px;
-    font-size: 5em;
-    color: var(--text-color-second);
+    right: -0.8em;
+    top: -0.4em;
+    transition: all 0.3s ease;
+    animation: dotBounce 2s infinite;
 }
+
+/* Hover Effects */
+.logo-link:hover .logo-main {
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-link:hover .logo-dot {
+    transform: scale(1.2);
+    background: var(--first-color);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .logo-main {
+        font-size: 1.5rem;
+        padding-right: 0.6em;
+    }
+    
+    .logo-dot {
+        width: 10px;
+        height: 10px;
+        right: -0.6em;
+        top: -0.3em;
+    }
+}
+
+@keyframes dotBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.logo-main {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.logo-link:hover .logo-main {
+    transform: rotateX(15deg) translateY(-2px);
+}
+
+.logo-link:active .logo-main {
+    transform: scale(0.98);
+}
+
 .nav-menu, .nav_menu_list{
     display: flex;
 }
@@ -497,7 +559,40 @@ h3{
     }
 }
 
-
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  /* Responsive: show hamburger and hide nav-links on small screens */
+  @media (max-width: 900px) {
+    .hamburger {
+      display: flex;
+    }
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      left: -100%;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.95);
+      width: 100%;
+      height: calc(100% - 60px);
+      padding-top: 2rem;
+      gap: 2rem;
+      transition: left 0.3s ease-in-out;
+      z-index: 1000;
+    }
+    .nav-links.active {
+      left: 0;
+    }
+  }
 /* ----- CONTACT BOX ----- */
 .contact-info{
     position: relative;
@@ -512,6 +607,8 @@ h3{
     border-radius: 10px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
 }
 .contact-info>h2{
     color: var(--color-white);
@@ -536,6 +633,17 @@ h3{
     color: #777;
     z-index: 2;
 }
+
+/* Remove underline and blue color from all links inside .contact-info */
+.contact-info a,
+.contact-info a:visited,
+.contact-info a:hover,
+.contact-info a:active {
+  color: inherit !important;          
+  text-decoration: none !important;  
+  cursor: pointer;                   
+}
+
 /* ----- CONTACT FORM ----- */
 .form-control{
     display: flex;
@@ -633,27 +741,24 @@ footer{
     .nav-menu.responsive{
         left: 0;
     }
-    .nav-menu{
+    .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 90px;
         left: -100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(20px);
         width: 100%;
-        min-height: 450px;
-        height: 90vh;
-        transition: .3s;
-    }
+        background: rgba(255, 255, 255, 0.95);
+        transition: left 0.4s ease;
+        z-index: 1000;
+      }
+      
+      .nav-menu.active {
+        left: 0;
+      }
     .nav_menu_list{
         flex-direction: column;
     }
     .nav-menu-btn{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: none;
     }
     .featured-box{
         flex-direction: column;
@@ -747,5 +852,88 @@ footer{
     }
 }
 
-
-
+/* Mobile Menu Styles */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1100;
+  }
+  
+  .nav-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #222; /* fallback color */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hamburger toggle animation */
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Hide menu button on desktop, show on mobile */
+.nav-menu-btn {
+    display: none;
+  }
+  
+  @media (max-width: 900px) {
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100vw;
+      width: 60vw;
+      height: 100vh;
+      background: var(--body-color);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: right 0.3s;
+      z-index: 999;
+    }
+    .nav-menu.responsive {
+      right: 0;
+    }
+    .nav-menu-btn {
+        display: block;
+        z-index: 1001;
+        width: 48px;  
+        height: 48px;
+        padding: 10px;
+    }
+    .nav-menu .nav_list {
+      margin: 40px 0;
+    }
+    body.menu-open {
+      overflow: hidden;
+    }
+    .nav-menu .nav_list li {
+        padding: 14px 0; 
+      }
+      .menu-overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.4);
+        z-index: 998;
+        display: none;
+      }
+      .menu-overlay.active {
+        display: block;
+      }
+  }
+  

@@ -14,34 +14,23 @@
       <!-- --------------- HEADER --------------- -->
       <nav id="header">
         <div class="nav-logo">
-            <p class="nav-name">AmenaTech</p>
-            <span>.</span>
+            <a href="#home" class="logo-link" aria-label="Home">
+                <span class="logo-main">Amena Mohammed</span>
+                <span class="logo-dot">.</span>
+            </a>
         </div>
-        <div class="nav-menu" id="myNavMenu">
-            <ul class="nav_menu_list">
-                <li class="nav_list">
-                    <a href="#home" class="nav-link active-link">Home</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#about" class="nav-link">About</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#contact" class="nav-link">Contact</a>
-                    <div class="circle"></div>
-                </li>
-            </ul>
+        <ul class="nav-menu" id="myNavMenu">
+          <li class="nav_list"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav_list"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav_list"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav_list"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-menu-btn" onclick="myMenuFunction()">
+          <i class="uil uil-bars"></i>
         </div>
-        <!-- Updated button in your HTML -->
-        <button class="btn download-resume-btn">
-            Download Resume <i class="uil uil-file-alt"></i>
-        </button>
       </nav>
+      
+      
       
       <!-- -------------- MAIN ---------------- -->
       <main class="wrapper">
@@ -54,7 +43,7 @@
                   <p>I'm a <span class="typedText">Software Engineer</span></p>
               </div>
               <div class="featured-text-info">
-                  <p>Detail-oriented software engineer with a strong background in developing scalable web applications and a commitment to enhancing user experience through innovative solutions.</p>
+                  <p>Driven Computer Science Student | Passionate About Building Scalable, User-Centered Software | Ready to Deliver Real Impact</p>
               </div>
               <div class="featured-text-btn">
                 <button class="btn blue-btn" id="collaborateBtn">
@@ -68,12 +57,15 @@
                 <a href="https://www.linkedin.com/in/amena-dev" class="icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                     <i class="uil uil-linkedin-alt"></i>
                 </a>
-                <a href="https://dribbble.com/yourprofile" class="icon" aria-label="Dribbble" target="_blank" rel="noopener noreferrer">
-                    <i class="uil uil-dribbble"></i>
-                </a>
+                <a href="mailto:Amena_mohammed15@outlook.com" class="icon" aria-label="Email">
+                    <i class="uil uil-envelope"></i>
+                </a>                
                 <a href="https://github.com/Amena15" class="icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                     <i class="uil uil-github-alt"></i>
                 </a>
+                <a href="https://wa.me/601162237057" class="icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                    <i class="uil uil-whatsapp"></i>
+                  </a>                  
             </div>
             </div>
             <div class="featured-image">
@@ -101,7 +93,7 @@
                 <p>I am a dedicated Computer Science student and aspiring software engineer with a strong foundation in software engineering principles such as modular design, clean code practices, and efficient algorithm development. I enjoy solving complex problems, collaborating in team environments, and applying theoretical knowledge to real-world challenges using modern development tools and frameworks.</p>
                 <div class="about-btn">
                     <button class="btn" id="downloadResumeBtn">
-                        Download Resume <i class="uil uil-file-alt"></i>
+                        View Resume <i class="uil uil-file-alt"></i>
                     </button>
                 </div>
             </div>
@@ -147,7 +139,7 @@
                     <span>MySQL</span>
                     <span>SQLite</span>
                     <span>VS Code</span>
-                    <span>Postman</span>
+                    <span>Figma</span>
                     <span>Command Line (CLI)</span>
                 </div>
             </div>
@@ -177,30 +169,41 @@
         <div class="col">
             <div class="contact-info">
                 <h2>Direct Contact <i class="uil uil-corner-right-down"></i></h2>
-                <p><i class="uil uil-envelope"></i> Email: Amena_mohammed15@outlook.com</p>
+                <p>
+                  <i class="uil uil-envelope"></i> Email: 
+                  <a href="mailto:Amena_mohammed15@outlook.com" style="text-decoration:none;">
+                    Amena_mohammed15@outlook.com
+                  </a>
+                </p>
             </div>
         </div>
         <div class="col">
-            <form action="https://formspree.io/f/xqaprejo" method="POST" id="contactForm" class="form-control">
+            <form action="https://formsubmit.co/Amena_mohammed15@outlook.com" method="POST" id="contactForm" class="form-control">
                 <div class="form-inputs">
-                    <input type="text" name="name" id="contactName" class="input-field" placeholder="Your Name" required>
-                    <input type="email" name="_replyto" id="contactEmail" class="input-field" placeholder="Your Email" required>
+                    <input type="text" name="Full Name" id="contactName" class="input-field" placeholder="Full Name" required>
+                    <input type="email" name="Email" id="contactEmail" class="input-field" placeholder="Email" required>
+                </div>
+                <div class="form-inputs">
+                    <input type="number" name="Phone Number" class="input-field" placeholder="Phone Number" required>
+                    <input type="text" name="Subject" class="input-field" placeholder="Subject" required>
                 </div>
                 <div class="text-area">
-                    <textarea name="message" id="contactMessage" placeholder="Your Message" required></textarea>
+                    <textarea name="Message" id="contactMessage" placeholder="Your Message" required></textarea>
                 </div>
                 <div class="form-button">
-                    <button type="submit" class="btn">Send Message <i class="uil uil-message"></i></button>
+                    <input type="submit" value="Send Message" class="btn">
                 </div>
-                <div id="formStatus"></div>
-                <!-- Hidden Fields for Formspree -->
-                <input type="hidden" name="_to" value="Amena_mohammed15@outlook.com">
+                <!-- Optional Hidden Fields for FormSubmit -->
                 <input type="hidden" name="_subject" value="New Portfolio Message">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
             </form>
         </div>
     </div>
 </section>
 
+
+  
 <!-- Add before closing body tag -->
 <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
     <i class="uil uil-arrow-up"></i>
@@ -227,8 +230,18 @@
         </ul>
     </div>
     <div class="footer-social-icons">
-        <a href="www.linkedin.com/in/amena-mohammed-dev" class="icon" target="_blank"><i class="uil uil-linkedin-alt"></i></a>
-        <a href="https://github.com/Amena15" class="icon" target="_blank"><i class="uil uil-github-alt"></i></a>
+        <a href="https://www.linkedin.com/in/amena-dev" class="icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="uil uil-linkedin-alt"></i>
+        </a>
+        <a href="mailto:Amena_mohammed15@outlook.com" class="icon" aria-label="Email">
+            <i class="uil uil-envelope"></i>
+        </a>                
+        <a href="https://github.com/Amena15" class="icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <i class="uil uil-github-alt"></i>
+        </a>
+        <a href="https://wa.me/601162237057" class="icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <i class="uil uil-whatsapp"></i>
+        </a>  
     </div>    
     <div class="bottom-footer">
         <p>&copy; <a href="#home" style="text-decoration: none;">Amena Mohamed</a> - All rights reserved</p>

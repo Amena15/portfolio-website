@@ -148,13 +148,10 @@ document.getElementById('collaborateBtn').addEventListener('click', function() {
 
 // Add this for resume download 
 document.getElementById('downloadResumeBtn').addEventListener('click', function() {
-  // Method 1: If you have the file hosted
-  window.open('path/to/your/resume.pdf', '_blank');
-  
-  // Method 2: For tracking downloads
+
   const link = document.createElement('a');
-  link.href = 'https://drive.google.com/file/d/157S6PXBNm-UlMDBl0_eCSKb3ocjeN2Su/view?usp=share_link';
-  link.download = 'Amena_Mohamed_Resume.pdf';
+  link.href = 'https://drive.google.com/file/d/1YmnNNmMzOeMHk9B8oHHWg8wJ4MyNlPqI/view?usp=share_link';
+  link.download = 'Aamena_Mohamed_Resume.pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -164,7 +161,7 @@ document.getElementById('downloadResumeBtn').addEventListener('click', function(
 });
 
 function downloadResume(button) {
-  const fileId = '157S6PXBNm-UlMDBl0_eCSKb3ocjeN2Su';
+  const fileId = '1YmnNNmMzOeMHk9B8oHHWg8wJ4MyNlPqI';
   const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
 
   // Show loading state
@@ -176,7 +173,7 @@ function downloadResume(button) {
   // Create hidden download link
   const link = document.createElement('a');
   link.href = downloadUrl;
-  link.download = 'Amena_Mohamed_Resume.pdf'; // Forces download with this name
+  link.download = 'Aamena_Mohamed_Resume.pdf'; // Forces download with this name
   link.style.display = 'none';
   document.body.appendChild(link);
 
@@ -357,3 +354,30 @@ scrollToTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+function myMenuFunction() {
+  const menu = document.getElementById("myNavMenu");
+  const icon = document.querySelector(".nav-menu-btn i");
+
+  menu.classList.toggle("responsive");
+
+  if (menu.classList.contains("responsive")) {
+    icon.classList.remove("uil-bars");
+    icon.classList.add("uil-times");
+    document.body.classList.add('menu-open');
+  } else {
+    icon.classList.remove("uil-times");
+    icon.classList.add("uil-bars");
+    document.body.classList.remove('menu-open');
+  }
+}
+
+// Close menu when clicking a link (on mobile)
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 900) {
+      myMenuFunction();
+    }
+  });
+});
+
