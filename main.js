@@ -273,17 +273,21 @@ document.querySelectorAll('.social_icons a').forEach(icon => {
 
 // Form submission
 document.getElementById('sendMessageBtn').addEventListener('click', function(e) {
-  e.preventDefault();
-  const name = document.querySelector('.input-field[type="text"]').value;
-  const email = document.querySelector('.input-field[type="email"]').value;
-  const message = document.querySelector('textarea').value;
-  
-  if(name && email && message) {
-      // Here you would typically send to a server
-      console.log({name, email, message});
-      alert('Thank you for your message!');
+  e.preventDefault();  // Stop default submission to validate first
+
+  const form = document.getElementById('contactForm');
+  const name = document.getElementById('contactName').value.trim();
+  const email = document.getElementById('contactEmail').value.trim();
+  const phone = document.querySelector('input[name="Phone Number"]').value.trim();
+  const subject = document.querySelector('input[name="Subject"]').value.trim();
+  const message = document.getElementById('contactMessage').value.trim();
+
+  // Basic validation: all fields required
+  if(name && email && phone && subject && message) {
+      // All good, submit the form to Formspree
+      form.submit();
   } else {
-      alert('Please fill all fields');
+      alert('Please fill all fields before sending.');
   }
 });
 
