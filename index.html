@@ -184,7 +184,7 @@
                     <input type="email" name="Email" id="contactEmail" class="input-field" placeholder="Email" required>
                 </div>
                 <div class="form-inputs">
-                    <input type="number" name="Phone Number" class="input-field" placeholder="Phone Number" required>
+                    <input type="tel" name="Phone Number" class="input-field" placeholder="Phone Number" required>
                     <input type="text" name="Subject" class="input-field" placeholder="Subject" required>
                 </div>
                 <div class="text-area">
@@ -193,12 +193,10 @@
                 <div class="form-button">
                     <input type="submit" value="Send Message" class="btn">
                 </div>
-                <!-- Optional Hidden Fields for FormSubmit -->
-                <input type="hidden" name="_subject" value="New Portfolio Message">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
+                <!-- Optional hidden field for redirect after submit -->
+                <input type="hidden" name="_redirect" value="index.html">
             </form>
-        </div>
+        </div>        
     </div>
 </section>
 
