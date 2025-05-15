@@ -420,7 +420,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     }
   } catch (error) {
     console.error('Error:', error);
-    formStatus.textContent = ' Error sending message. Please try again later.';
+    formStatus.textContent = ' Error sending message. Please try again.';
     formStatus.className = 'form-status error';
   } finally {
     // Reset button state
@@ -429,7 +429,6 @@ document.getElementById('contactForm').addEventListener('submit', async function
     submitBtn.disabled = false;
     formStatus.style.display = 'block';
 
-    // Auto-hide status
     setTimeout(() => {
       formStatus.style.display = 'none';
     }, 5000);
