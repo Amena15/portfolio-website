@@ -386,7 +386,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-document.getElementById('contactForm').addEventListener('submit', async function (e) {
+/*document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
   const form = e.target;
@@ -433,4 +433,4 @@ document.getElementById('contactForm').addEventListener('submit', async function
       formStatus.style.display = 'none';
     }, 5000);
   }
-});
+});*/

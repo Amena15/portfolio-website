@@ -178,10 +178,10 @@
             </div>
         </div>
         <div class="col">
-            <form id="contactForm" action="https://formspree.io/f/xyzwlalq" method="POST" class="form-control">
+            <form action="https://formsubmit.co/Amena_mohammed15@outlook.com" method="POST" class="form-control">
                 <div class="form-inputs">
                   <input type="text" name="Full Name" class="input-field" placeholder="Full Name" required>
-                  <input type="email" name="_replyto" class="input-field" placeholder="Email" required>
+                  <input type="email" name="Email" class="input-field" placeholder="Email" required>
                 </div>
                 <div class="form-inputs">
                   <input type="tel" name="Phone Number" class="input-field" placeholder="Phone Number" required>
@@ -190,20 +190,13 @@
                 <div class="text-area">
                   <textarea name="Message" placeholder="Your Message" required></textarea>
                 </div>
-              
-                <!-- Formspree Hidden Fields -->
-                <input type="hidden" name="_subject" value="New Portfolio Message">
-                <input type="hidden" name="_template" value="table">
+            
+                <!-- Optional: Redirect to a custom thank-you page after submission -->
+                <input type="hidden" name="_next" value="https://amenaportfolio.netlify.app/thank-you.html">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-              
-                <div class="form-status" id="formStatus"></div>
-              
+            
                 <div class="form-button">
-                  <button type="submit" class="btn" id="submitBtn">
-                    <span id="btnText">Send Message</span>
-                    <div id="btnLoader" class="loader" style="display:none;"></div>
-                  </button>
+                  <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
                 </div>
               </form>
               
