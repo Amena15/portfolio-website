@@ -208,13 +208,6 @@ document.querySelectorAll('.download-resume-btn').forEach(btn => {
 });
 
 
-/* Message box control */
-document.querySelector('.form-button .btn').addEventListener('click', function(e) {
-  e.preventDefault();
-  // Add form validation and submission logic here
-  alert('Message sent!'); // Temporary
-});
-
 
 
 async function fetchGitHubRepos() {
