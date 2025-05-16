@@ -8,8 +8,8 @@
     --text-color-second: rgb(68, 68, 68);
     --text-color-third: rgb(30, 159, 171);
     --first-color: rgb(110, 87, 224);
-    --first-color-hover: rgb(40, 91, 212);
-    --second-color: rgb(0, 201, 255);
+    --first-color-hover: rgb(169, 141, 235);
+    --second-color: rgb(30, 159, 171);
     --third-color: rgb(192, 166, 49);
     --first-shadow-color: rgba(0, 0, 0, 0.1);
 }
@@ -267,9 +267,10 @@ nav{
     border-radius: 50%;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    color: var(--first-color)
 }
 .icon:hover{
-    color: var(--first-color);
+    color: var(--first-color-hover);
 }
 /* ----- FEATURED IMAGE BOX ----- */
 .featured-image{
@@ -363,6 +364,7 @@ h3{
     background: var(--color-white);
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     border-radius: 20px;
+    cursor: default;
 }
 .about-info p{
     text-align: center;
@@ -381,7 +383,7 @@ h3{
     background: var(--first-color-hover);
 }
 /* ----- ABOUT / SKILLS BOX ----- */
-/* Base Skills Box - Add consistent spacing */
+
 .skills-box {
     transition: all 0.4s ease;
     transform: translateY(0);
@@ -510,14 +512,14 @@ h3{
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     text-decoration: none;
-    background: #0077cc;
+    background:var(--first-color);
     color: white;
     border-radius: 5px;
     transition: background 0.3s ease;
 }
 
 .project-links .btn:hover {
-    background: #005fa3;
+    background: var(--first-color-hover);
 }
 
 .loader, .error-message {
@@ -603,7 +605,7 @@ h3{
     padding: 20px 30px;
     width: 100%;
     height: 315px;
-    background: var(--second-color);
+    background: var(--first-color);
     border-radius: 10px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
@@ -630,7 +632,7 @@ h3{
 .contact-info:hover.contact-info h2,
 .contact-info:hover.contact-info p,
 .contact-info:hover.contact-info i{
-    color: #777;
+    color: var(--first-color-hover);
     z-index: 2;
 }
 
@@ -679,11 +681,11 @@ textarea{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--second-color);
+    background: var(--first-color);
     color: var(--color-white);
 }
 .form-button>.btn:hover{
-    background: #00B5E7;
+    background: var(--first-shadow-color);
 }
 .form-button i{
     font-size: 18px;
