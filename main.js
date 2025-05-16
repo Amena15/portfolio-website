@@ -21,7 +21,7 @@ function myMenuFunction() {
 // Close menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
-      if (window.innerWidth <= 900) { // Match your mobile breakpoint
+      if (window.innerWidth <= 900) { // Match mobile breakpoint
           myMenuFunction();
       }
   });
@@ -90,14 +90,14 @@ const srRight = ScrollReveal({
 })
 
 srRight.reveal('.skills-box',{delay: 100})
-//srRight.reveal('.form-control',{delay: 100})
+srRight.reveal('.form-control',{delay: 100})
 
 // Add subtle stagger animation to skills
 document.querySelectorAll('.skills-list span').forEach((skill, index) => {
   skill.style.transitionDelay = `${index * 50}ms`;
 });
 
-// Add click-to-copy functionality (optional)
+// Add click-to-copy functionality 
 document.querySelectorAll('.skills-list span').forEach(skill => {
   skill.addEventListener('click', function() {
       const tempInput = document.createElement('input');
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', fetchGitHubRepos);
 
 
 /*------------------------------------------------------ */
-// Add this to your main.js
+// Add this to main.js
 document.querySelectorAll('.social_icons a').forEach(icon => {
   icon.addEventListener('click', function(e) {
       // You can add analytics tracking here
@@ -264,77 +264,11 @@ document.querySelectorAll('.social_icons a').forEach(icon => {
   });
 });
 
-/* Form submission
-document.getElementById('sendMessageBtn').addEventListener('click', function(e) {
-  e.preventDefault();  // Stop default submission to validate first
-
-  const form = document.getElementById('contactForm');
-  const name = document.getElementById('contactName').value.trim();
-  const email = document.getElementById('contactEmail').value.trim();
-  const phone = document.querySelector('input[name="Phone Number"]').value.trim();
-  const subject = document.querySelector('input[name="Subject"]').value.trim();
-  const message = document.getElementById('contactMessage').value.trim();
-
-  // Basic validation: all fields required
-  if(name && email && phone && subject && message) {
-      // All good, submit the form to Formspree
-      form.submit();
-  } else {
-      alert('Please fill all fields before sending.');
-  }
-}); 
-*/
-
 // Menu toggle
 function myMenuFunction() {
   document.getElementById("myNavMenu").classList.toggle("responsive");
 }
 
-/*
-// Contact Form Handling
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  
-  const form = e.target;
-  const status = document.getElementById('formStatus');
-  const button = form.querySelector('button[type="submit"]');
-  
-  // UI Feedback
-  button.disabled = true;
-  button.innerHTML = 'Sending... <i class="uil uil-spinner-alt uil-spin"></i>';
-  status.textContent = '';
-  status.style.color = '';
-
-  try {
-      const formData = new FormData(form);
-      
-      // Send to Formspree
-      const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-              'Accept': 'application/json'
-          }
-      });
-
-      if (response.ok) {
-          status.textContent = 'Message sent successfully!';
-          status.style.color = 'green';
-          form.reset();
-      } else {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to send');
-      }
-  } catch (error) {
-      console.error('Error:', error);
-      status.textContent = 'Failed to send. Please email me directly at Amena_mohammed15@outlook.com';
-      status.style.color = 'red';
-  } finally {
-      button.disabled = false;
-      button.innerHTML = 'Send Message <i class="uil uil-message"></i>';
-  }
-});
-*/
 
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
@@ -379,41 +313,48 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-/*document.getElementById('contactForm').addEventListener('submit', async function (e) {
+// Contact Form Handling
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-
+  
   const form = e.target;
-  const submitBtn = document.getElementById('submitBtn');
-  const btnText = document.getElementById('btnText');
-  const btnLoader = document.getElementById('btnLoader');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const btnText = submitBtn.querySelector('#btnText');
+  const btnLoader = submitBtn.querySelector('#btnLoader');
   const formStatus = document.getElementById('formStatus');
-
-  // Show loading state
+  
+  // UI Feedback - Loading State
   btnText.textContent = 'Sending...';
   btnLoader.style.display = 'inline-block';
   submitBtn.disabled = true;
   formStatus.style.display = 'none';
-
+  
   try {
+    const formData = new FormData(form);
+    
+    // Send to Formspree
     const response = await fetch(form.action, {
       method: 'POST',
-      body: new FormData(form),
+      body: formData,
       headers: {
         'Accept': 'application/json'
       }
     });
 
     if (response.ok) {
-      formStatus.textContent = ' Message sent successfully!';
+      formStatus.textContent = 'Message sent successfully!';
       formStatus.className = 'form-status success';
       form.reset();
+      
+      // Optional: Track successful submission
+      console.log('Form submitted successfully');
     } else {
       const errorData = await response.json();
       throw new Error(errorData.error || 'Failed to send message');
     }
   } catch (error) {
-    console.error('Error:', error);
-    formStatus.textContent = ' Error sending message. Please try again.';
+    console.error('Form submission error:', error);
+    formStatus.textContent = 'Error sending message. Please try again or email me directly at Amena_mohammed15@outlook.com';
     formStatus.className = 'form-status error';
   } finally {
     // Reset button state
@@ -421,12 +362,24 @@ document.querySelectorAll('.nav-link').forEach(link => {
     btnLoader.style.display = 'none';
     submitBtn.disabled = false;
     formStatus.style.display = 'block';
-
+    
+    // Hide status message after 5 seconds
     setTimeout(() => {
       formStatus.style.display = 'none';
     }, 5000);
   }
-});*/
+});
 
-
-
+// Form validation on input
+const formInputs = document.querySelectorAll('.form-control input, .form-control textarea');
+formInputs.forEach(input => {
+  input.addEventListener('input', function() {
+    if (this.checkValidity()) {
+      this.classList.remove('invalid');
+      this.classList.add('valid');
+    } else {
+      this.classList.remove('valid');
+      this.classList.add('invalid');
+    }
+  });
+});
