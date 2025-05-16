@@ -90,7 +90,7 @@ const srRight = ScrollReveal({
 })
 
 srRight.reveal('.skills-box',{delay: 100})
-srRight.reveal('.form-control',{delay: 100})
+//srRight.reveal('.form-control',{delay: 100})
 
 // Add subtle stagger animation to skills
 document.querySelectorAll('.skills-list span').forEach((skill, index) => {
@@ -297,7 +297,7 @@ function myMenuFunction() {
   document.getElementById("myNavMenu").classList.toggle("responsive");
 }
 
-
+/*
 // Contact Form Handling
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -341,7 +341,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
       button.innerHTML = 'Send Message <i class="uil uil-message"></i>';
   }
 });
-
+*/
 
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
@@ -434,3 +434,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
     }, 5000);
   }
 });*/
+
+
+

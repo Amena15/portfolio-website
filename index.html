@@ -178,29 +178,37 @@
             </div>
         </div>
         <div class="col">
-            <form action="https://formsubmit.co/monybaabad@gmail.com" method="POST" class="form-control">
-                <div class="form-inputs">
-                  <input type="text" name="Full Name" class="input-field" placeholder="Full Name" required>
-                  <input type="email" name="Email" class="input-field" placeholder="Email" required>
-                </div>
-                <div class="form-inputs">
-                  <input type="tel" name="Phone Number" class="input-field" placeholder="Phone Number" required>
-                  <input type="text" name="Subject" class="input-field" placeholder="Subject" required>
-                </div>
-                <div class="text-area">
-                  <textarea name="Message" placeholder="Your Message" required></textarea>
-                </div>
-            
-                <!-- Optional: Redirect to a custom thank-you page after submission -->
-                <input type="hidden" name="_next" value="https://amenaportfolio.netlify.app/thank-you.html">
-                <input type="hidden" name="_captcha" value="false">
-            
-                <div class="form-button">
-                  <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
-                </div>
-              </form>
-                 
+            <section class="contact" id="contact">
+                <h2 class="heading">Contact <span>Me</span></h2>
               
+                <form action="https://formsubmit.co/monybaabad@gmail.com" method="POST" class="form-control">
+                  
+                  <!-- Input fields -->
+                  <div class="form-inputs">
+                    <input type="text" name="Full Name" class="input-field" placeholder="Full Name" required>
+                    <input type="email" name="Email" class="input-field" placeholder="Email" required>
+                  </div>
+              
+                  <div class="form-inputs">
+                    <input type="tel" name="Phone Number" class="input-field" placeholder="Phone Number" required>
+                    <input type="text" name="Subject" class="input-field" placeholder="Subject" required>
+                  </div>
+              
+                  <div class="text-area">
+                    <textarea name="Message" placeholder="Your Message" required></textarea>
+                  </div>
+              
+                  <!-- Optional hidden fields -->
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_next" value="https://amena15.github.io/portfolio-website/thank-you.html">
+              
+                  <div class="form-button">
+                    <input type="submit" value="Send Message" class="btn">
+                  </div>
+                </form>
+              </section>
+              
+                 
         </div>        
     </div>
 </section>
