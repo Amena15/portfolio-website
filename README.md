@@ -1,4 +1,4 @@
-# AmenaTech Portfolio 🌐
+# Amena Portfolio 🌐
 
 Welcome to **AmenaTech** — a personal portfolio built to showcase my journey in tech, projects, and skills as a developer.
 
