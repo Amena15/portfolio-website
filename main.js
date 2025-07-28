@@ -1,5 +1,5 @@
 /* ----- NAVIGATION BAR FUNCTION ----- */
-// Updated in your main.js
+
 function myMenuFunction() {
   const menu = document.getElementById("myNavMenu");
   const icon = document.querySelector(".nav-menu-btn i");
@@ -50,7 +50,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     backSpeed : 80,
     backDelay : 2000
  })
-/* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
+/* ------- SCROLL REVEAL ANIMATION ------- */
  const sr = ScrollReveal({
         origin: 'top',
         distance: '80px',
@@ -69,7 +69,7 @@ sr.reveal('.featured-image',{delay: 300})
 sr.reveal('.project-box',{interval: 200})
 /* -- HEADINGS -- */
 sr.reveal('.top-header',{})
-/* ----- ## -- SCROLL REVEAL LEFT_RIGHT ANIMATION -- ## ----- */
+/* ------- SCROLL REVEAL LEFT_RIGHT ANIMATION ------- */
 /* -- ABOUT INFO & CONTACT INFO -- */
 const srLeft = ScrollReveal({
   origin: 'left',
@@ -255,8 +255,7 @@ function showProjects(repos) {
 document.addEventListener('DOMContentLoaded', fetchGitHubRepos);
 
 
-/*------------------------------------------------------ */
-// Add this to main.js
+// main.js
 document.querySelectorAll('.social_icons a').forEach(icon => {
   icon.addEventListener('click', function(e) {
       // You can add analytics tracking here
