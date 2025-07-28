@@ -39,7 +39,7 @@ html{
 ::-webkit-scrollbar-thumb:hover{
     background: #bbb;
 }
-/* ---##-- REUSABLE CSS --##--- */
+/* ----- COMMON CSS ----- */
 /* ----- GLOBAL BUTTON DESIGN ----- */
 .btn{
     font-weight: 500;
@@ -333,7 +333,7 @@ nav{
     display: flex;
     width: 50%;
 }
-/* -- ## --- RESUABLE CSS -- ## -- */
+/* ----- COMMON CSS ---- */
 .top-header{
     text-align: center;
     margin-bottom: 5em;
@@ -392,7 +392,6 @@ h3{
     cursor: pointer;
 }
 
-/* Remove margin for last box */
 .skills-box:last-child {
     margin-bottom: 0;
 }
@@ -431,7 +430,7 @@ h3{
     box-shadow: 0 4px 8px rgba(110, 87, 224, 0.2);
 }
 
-/* Title hover effect - Fixed version */
+/* Title hover effect */
 .skills-header h3 {
     transition: color 0.3s ease;
     display: inline-block; /* Required for transform animations */
@@ -442,7 +441,7 @@ h3{
     animation: pulse 1.5s infinite;
 }
 
-/* Pulse animation */
+/* Animation */
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
@@ -636,7 +635,7 @@ h3{
     z-index: 2;
 }
 
-/* Remove underline and blue color from all links inside .contact-info */
+/* Remove underline and blue color from all links */
 .contact-info a,
 .contact-info a:visited,
 .contact-info a:hover,
@@ -725,7 +724,7 @@ footer{
     font-size: 14px;
     margin-top: 10px;
 }
-/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
+/* ----- MEDIA QUERY  / RESPONSIVE ----- */
 @media only screen and (max-width: 1024px){
     .featured-text{
         padding: 0;
@@ -872,7 +871,7 @@ footer{
     display: block;
     height: 3px;
     width: 100%;
-    background-color: #222; /* fallback color */
+    background-color: #222; 
     border-radius: 2px;
     transition: all 0.3s ease;
   }
@@ -939,7 +938,6 @@ footer{
       }
   }
   
-  /* Form Status Message */
 /* Form Status Styles */
 .form-status {
     padding: 12px;
