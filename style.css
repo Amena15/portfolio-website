@@ -2,16 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* ----- VARIABLES ----- */
-:root{
-    --body-color: rgb(250, 250, 250);
-    --color-white: rgb(255, 255, 255);
-    --text-color-second: rgb(68, 68, 68);
-    --text-color-third: rgb(30, 159, 171);
-    --first-color: rgb(110, 87, 224);
-    --first-color-hover: rgb(169, 141, 235);
-    --second-color: rgb(30, 159, 171);
-    --third-color: rgb(192, 166, 49);
-    --first-shadow-color: rgba(0, 0, 0, 0.1);
+:root {
+    --body-color: #faf7ff;
+    --color-white: #ffffff;
+    --text-color-second: #5a4b6a;
+    --text-color-third: #9c64a6;
+    --first-color: #b185db;
+    --first-color-hover: #c7a8e0;
+    --second-color: #d4b3ff;
+    --third-color: #e2c2ff;
+    --first-shadow-color: rgba(177, 133, 219, 0.2);
+    --gradient-primary: linear-gradient(135deg, #b185db 0%, #d4b3ff 100%);
+    --gradient-hover: linear-gradient(135deg, #c7a8e0 0%, #e2c2ff 100%);
 }
 /* ----- BASE ----- */
 *{
@@ -41,46 +43,80 @@ html{
 }
 /* ----- COMMON CSS ----- */
 /* ----- GLOBAL BUTTON DESIGN ----- */
-.btn{
+.btn {
     font-weight: 500;
-    padding: 12px 20px;
-    background: #efefef;
+    padding: 12px 28px;
+    background: var(--gradient-primary);
+    color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: .4s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(177, 133, 219, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
-.btn>i{
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--gradient-hover);
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(177, 133, 219, 0.4);
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn>i {
     margin-left: 10px;
+    transition: transform 0.3s ease;
 }
-.btn:hover{
-    background: var(--second-color);
-    color: var(--color-white);
+
+.btn:hover>i {
+    transform: translateX(5px);
 }
 /* ----- GLOBAL ICONS DESIGN ----- */
 i{
     font-size: 16px;
 }
 /* ------- BASE -------- */
-body{
+body {
     background: var(--body-color);
+    color: var(--text-color-second);
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
 }
 .container{
     width: 100%;
     position: relative;
 }
 /* ----- NAVIGATION BAR ----- */
-nav{
+nav {
     position: fixed;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 90px;
-    line-height: 90px;
-    background: var(--body-color);
-    padding-inline: 9vw;
-    transition: .3s;
-    z-index: 100;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px var(--first-shadow-color);
+    padding: 0 5vw;
+    transition: all 0.3s ease;
+    z-index: 1000;
 }
 .nav-logo {
     position: relative;
@@ -167,12 +203,38 @@ nav{
     list-style: none;
     position: relative;
 }
-.nav-link{
+.nav-link {
     text-decoration: none;
     color: var(--text-color-second);
     font-weight: 500;
-    padding-inline: 15px;
-    margin-inline: 20px;
+    padding: 8px 20px;
+    margin: 0 5px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--first-color);
+    background: rgba(177, 133, 219, 0.1);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 60%;
 }
 .nav-menu-btn{
     display: none;
