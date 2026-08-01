@@ -3,274 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <link rel="stylesheet" href="style.css?v=1.1">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Portfolio of Amena Mohamed, a driven Software Engineer passionate about building scalable, user-centered software.">
+    <meta name="theme-color" content="#b185db">
+    
     <title>Amena Mohamed | Software Engineer Portfolio</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-   <div class="container">
-      <!-- --------------- HEADER --------------- -->
-      <nav id="header">
-        <div class="nav-logo">
-            <a href="#home" class="logo-link" aria-label="Home">
-                <span class="logo-main">Amena Mohammed</span>
-                <span class="logo-dot">.</span>
-            </a>
-        </div>
-        <ul class="nav-menu" id="myNavMenu">
-          <li class="nav_list"><a href="#home" class="nav-link">Home</a></li>
-          <li class="nav_list"><a href="#about" class="nav-link">About</a></li>
-          <li class="nav_list"><a href="#projects" class="nav-link">Projects</a></li>
-          <li class="nav_list"><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="nav-menu-btn" onclick="myMenuFunction()">
-          <i class="uil uil-bars"></i>
-        </div>
-      </nav>
-      
-      
-      
-      <!-- -------------- MAIN ---------------- -->
-      <main class="wrapper">
-         <section class="featured-box" id="home">
-            <div class="featured-text">
-              <div class="featured-text-card">
-                  <span>Welcome to My Professional Portfolio</span>
-              </div>
-              <div class="featured-name">
-                  <p>I'm a <span class="typedText">Software Engineer</span></p>
-              </div>
-              <div class="featured-text-info">
-                  <p>Driven Computer Science Student | Passionate About Building Scalable, User-Centered Software | Ready to Deliver Real Impact</p>
-              </div>
-              <div class="featured-text-btn">
-                <button class="btn blue-btn" id="collaborateBtn">
-                    Let's Collaborate <i class="uil uil-comment-alt-message"></i>
+    <div class="container">
+        <!-- HEADER -->
+        <header id="header">
+            <nav class="nav-container">
+                <div class="nav-logo">
+                    <a href="#home" class="logo-link" aria-label="Navigate to Home">
+                        <span class="logo-main">Amena Mohamed</span>
+                        <span class="logo-dot" aria-hidden="true"></span>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="nav-menu-btn" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class="uil uil-bars" aria-hidden="true"></i>
                 </button>
-                <button class="btn download-resume-btn">
-                    Download Resume <i class="uil uil-file-alt"></i>
-                </button>
-              </div>
-              <!-- Updated in your HTML -->
-            <div class="social_icons">
-                <a href="https://www.linkedin.com/in/amena-dev" class="icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                    <i class="uil uil-linkedin-alt"></i>
+            </nav>
+        </header>
+      
+        <!-- MAIN CONTENT -->
+        <main class="wrapper">
+            <!-- HOME SECTION -->
+            <section class="featured-box" id="home">
+                <div class="featured-text">
+                    <div class="featured-text-card">
+                        <span>Welcome to My Professional Portfolio</span>
+                    </div>
+                    <h1 class="featured-name">I'm a <span class="typedText"></span></h1>
+                    <p class="featured-text-info">Driven Computer Science Student | Passionate About Building Scalable, User-Centered Software | Ready to Deliver Real Impact</p>
+                    
+                    <div class="featured-text-btn">
+                        <button class="btn btn-primary" id="collaborateBtn">
+                            Let's Collaborate <i class="uil uil-comment-alt-message" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn btn-secondary" id="downloadResumeBtn">
+                            Download Resume <i class="uil uil-file-alt" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/amena-dev" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <i class="uil uil-linkedin-alt" aria-hidden="true"></i>
+                        </a>
+                        <a href="mailto:Amena_mohammed15@outlook.com" class="social-icon" aria-label="Email">
+                            <i class="uil uil-envelope" aria-hidden="true"></i>
+                        </a>                
+                        <a href="https://github.com/Amena15" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                            <i class="uil uil-github-alt" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://wa.me/601162237057" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                            <i class="uil uil-whatsapp" aria-hidden="true"></i>
+                        </a>                  
+                    </div>
+                </div>
+                
+                <div class="featured-image">
+                    <div class="image-wrapper">
+                        <img src="Photo.JPG" alt="Amena Mohamed, Software Engineer" loading="eager" width="380" height="380">
+                    </div>
+                </div>
+                
+                <a href="#about" class="scroll-btn" aria-label="Scroll down to About section">
+                    <i class="uil uil-mouse-alt" aria-hidden="true"></i>
+                    <span>Discover More</span>
                 </a>
-                <a href="mailto:Amena_mohammed15@outlook.com" class="icon" aria-label="Email">
-                    <i class="uil uil-envelope"></i>
-                </a>                
-                <a href="https://github.com/Amena15" class="icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                    <i class="uil uil-github-alt"></i>
-                </a>
-                <a href="https://wa.me/601162237057" class="icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-                    <i class="uil uil-whatsapp"></i>
-                  </a>                  
-            </div>
-            </div>
-            <div class="featured-image">
-              <div class="image">
-                  <img src="Photo.JPG" alt="Amena's Professional Avatar">
-              </div>
-            </div>
-            <div class="scroll-icon-box">
-              <a href="#about" class="scroll-btn">
-                  <i class="uil uil-mouse-alt"></i>
-                  <p>Discover More</p>
-              </a>
-            </div>
-         </section>
+            </section>
 
-      <!-- --------------- ABOUT ME SECTION --------------- -->
-<section class="section" id="about">
-    <div class="top-header">
-        <h1>About Me</h1>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="about-info">
-                <h3>Introduction</h3>
-                <p>I am a dedicated Computer Science student and aspiring software engineer with a strong foundation in software engineering principles such as modular design, clean code practices, and efficient algorithm development. I enjoy solving complex problems, collaborating in team environments, and applying theoretical knowledge to real-world challenges using modern development tools and frameworks.</p>
-                <div class="about-btn">
-                    <button class="btn" id="downloadResumeBtn">
-                        View Resume <i class="uil uil-file-alt"></i>
-                    </button>
+            <!-- ABOUT SECTION -->
+            <section class="section" id="about">
+                <div class="top-header">
+                    <h2>About Me</h2>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="skills-box">
-                <div class="skills-header">
-                    <h3>Development</h3>
-                </div>
-                <div class="skills-list">
-                    <span>Java</span>
-                    <span>Python</span>
-                    <span>C++</span>
-                    <span>Django</span>
-                    <span>JavaScript</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
-                </div>
-            </div>
-        
-            <!-- Core Engineering -->
-            <div class="skills-box">
-                <div class="skills-header">
-                    <h3>Engineering</h3>
-                </div>
-                <div class="skills-list">
-                    <span>Data Structures & Algorithms</span>
-                    <span>Object-Oriented Programming</span>
-                    <span>Debugging & Testing</span>
-                    <span>Version Control (Git/GitHub)</span>
-                    <span>MVC Architecture</span>
-                    <span>Agile Methodologies</span>
-                    <span>Problem Solving</span>
-                </div>
-            </div>
-        
-            <!-- Tools & Platforms -->
-            <div class="skills-box">
-                <div class="skills-header">
-                    <h3>Tools & Databases</h3>
-                </div>
-                <div class="skills-list">
-                    <span>MySQL</span>
-                    <span>SQLite</span>
-                    <span>VS Code</span>
-                    <span>Figma</span>
-                    <span>Command Line (CLI)</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- -------------- PROJECTS SECTION ---------------- -->
-<section class="section" id="projects">
-    <div class="top-header">
-      <h1>My Projects</h1>
-    </div>
-    <div id="projects-container" class="project-container">
-      <div class="loader">Loading projects...</div>
-    </div>
-  </section>
-
-
-<!-- -------------- CONTACT SECTION ---------------- -->
-<section class="section" id="contact">
-    <div class="top-header">
-        <h1>Contact Me</h1>
-        <span>Get in touch for opportunities or collaborations</span>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="contact-info">
-                <h2>Direct Contact <i class="uil uil-corner-right-down"></i></h2>
-                <p>
-                  <i class="uil uil-envelope"></i> Email: 
-                  <a href="mailto:Amena_mohammed15@outlook.com" style="text-decoration:none;">
-                    Amena_mohammed15@outlook.com
-                  </a>
-                </p>
-            </div>
-        </div>
-        <div class="col">
-            <section class="contact" id="contact">
-                <h2 class="heading">Contact <span>Me</span></h2>
-              
-                <form id="contactForm" action="https://formsubmit.co/monybaabad@gmail.com" method="POST" class="form-control">
-                    <!-- Input fields -->
-                    <div class="form-inputs">
-                      <input type="text" name="Full Name" class="input-field" placeholder="Full Name" required>
-                      <input type="email" name="Email" class="input-field" placeholder="Email" required>
+                <div class="row">
+                    <div class="col">
+                        <div class="about-info">
+                            <h3>Introduction</h3>
+                            <p>I am a dedicated Computer Science student and aspiring software engineer with a strong foundation in software engineering principles such as modular design, clean code practices, and efficient algorithm development. I enjoy solving complex problems, collaborating in team environments, and applying theoretical knowledge to real-world challenges using modern development tools and frameworks.</p>
+                            <div class="about-btn">
+                                <button class="btn btn-primary" id="downloadResumeBtnAbout">
+                                    View Resume <i class="uil uil-file-alt" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                  
-                    <div class="form-inputs">
-                      <input type="tel" name="Phone Number" class="input-field" placeholder="Phone Number">
-                      <input type="text" name="Subject" class="input-field" placeholder="Subject" required>
+                    <div class="col">
+                        <div class="skills-box">
+                            <div class="skills-header"><h3>Development</h3></div>
+                            <div class="skills-list">
+                                <span>Java</span><span>Python</span><span>C++</span><span>JavaScript</span><span>TypeScript</span><span>HTML</span><span>CSS</span><span>React</span><span>Django</span><span>FastAPI</span><span>Solidity</span>
+                            </div>
+                        </div>
+                        <div class="skills-box">
+                            <div class="skills-header"><h3>Engineering</h3></div>
+                            <div class="skills-list">
+                                <span>Data Structures & Algorithms</span><span>OOP</span><span>Debugging & Testing</span><span>Software Testing</span><span>REST API Development</span><span>API Integration</span><span>Requirements Engineering</span><span>MVC Architecture</span><span>Git/GitHub</span><span>Agile</span>
+                            </div>
+                        </div>
+                        <div class="skills-box">
+                            <div class="skills-header"><h3>Tools & Databases</h3></div>
+                            <div class="skills-list">
+                                <span>MySQL</span><span>PostgreSQL</span><span>SQLite</span><span>MongoDB</span><span>VS Code</span><span>Postman</span><span>Docker</span><span>Git</span><span>Figma</span><span>CLI</span>
+                            </div>
+                        </div>
+                        <div class="skills-box">
+                            <div class="skills-header"><h3>AI & Cloud</h3></div>
+                            <div class="skills-list">
+                                <span>Gemini API</span><span>LLMs</span><span>NLP</span><span>Azure Functions</span><span>Azure Service Bus</span>
+                            </div>
+                        </div>
                     </div>
-                  
-                    <div class="text-area">
-                      <textarea name="Message" placeholder="Your Message" required></textarea>
-                    </div>
-                  
-                    <!-- Hidden fields: disable CAPTCHA, set email subject, and define redirect URL after form submission -->
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://amena15.github.io/portfolio-website/thank-you.html">
-                    <input type="hidden" name="_subject" value="New message from your portfolio!">
-                  
-                    <!-- Status message -->
-                    <div id="formStatus" class="form-status" style="display: none;"></div>
-                  
-                    <!-- Submit button with loading state -->
-                    <div class="form-button">
-                      <button type="submit" class="btn">
-                        <span id="btnText">Send Message</span>
-                        <span id="btnLoader" class="loader" style="display: none;"></span>
-                      </button>
-                    </div>
-                  </form>
-              </section>
-              
-                 
-        </div>        
-    </div>
-</section>
+                </div>
+            </section>
 
+            <!-- PROJECTS SECTION -->
+            <section class="section" id="projects">
+                <div class="top-header">
+                    <h2>My Projects</h2>
+                    <span>Recent work fetched from GitHub</span>
+                </div>
+                <div id="projects-container" class="project-container">
+                    <div class="loader" aria-label="Loading projects"></div>
+                </div>
+            </section>
 
+            <!-- CONTACT SECTION -->
+            <section class="section" id="contact">
+                <div class="top-header">
+                    <h2>Contact Me</h2>
+                    <span>Get in touch for opportunities or collaborations</span>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="contact-info">
+                            <h3>Direct Contact <i class="uil uil-corner-right-down" aria-hidden="true"></i></h3>
+                            <p>
+                                <i class="uil uil-envelope" aria-hidden="true"></i> 
+                                <a href="mailto:Amena_mohammed15@outlook.com">Amena_mohammed15@outlook.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <form id="contactForm" action="https://formsubmit.co/ajax/monybaabad@gmail.com" method="POST" class="contact-form">
+                            <div class="form-inputs">
+                                <input type="text" name="Full Name" class="input-field" placeholder="Full Name" required autocomplete="name">
+                                <input type="email" name="Email" class="input-field" placeholder="Email" required autocomplete="email">
+                            </div>
+                            <div class="form-inputs">
+                                <input type="tel" name="Phone Number" class="input-field" placeholder="Phone Number" autocomplete="tel">
+                                <input type="text" name="Subject" class="input-field" placeholder="Subject" required>
+                            </div>
+                            <div class="text-area">
+                                <textarea name="Message" class="input-field" placeholder="Your Message" required rows="5"></textarea>
+                            </div>
+                            
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://amena15.github.io/portfolio-website/thank-you.html">
+                            <input type="hidden" name="_subject" value="New message from your portfolio!">
+                            
+                            <div id="formStatus" class="form-status" role="alert" aria-live="polite"></div>
+                            
+                            <div class="form-button">
+                                <button type="submit" class="btn btn-primary" id="submitBtn">
+                                    <span id="btnText">Send Message</span>
+                                    <span id="btnLoader" class="btn-loader" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>        
+                </div>
+            </section>
+        </main>
   
-<!-- Add before closing body tag -->
-<button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
-    <i class="uil uil-arrow-up"></i>
-</button>
-  <!-- --------------- FOOTER --------------- -->
-<footer>
-    <div class="top-footer">
-        <p>Amena Mohamed</p>
+        <!-- FOOTER -->
+        <footer>
+            <div class="top-footer">
+                <p>Amena Mohamed</p>
+            </div>
+            <div class="middle-footer">
+                <ul class="footer-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social-icons">
+                <a href="https://www.linkedin.com/in/amena-dev" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="uil uil-linkedin-alt"></i></a>
+                <a href="mailto:Amena_mohammed15@outlook.com" class="social-icon" aria-label="Email"><i class="uil uil-envelope"></i></a>                
+                <a href="https://github.com/Amena15" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="uil uil-github-alt"></i></a>
+                <a href="https://wa.me/601162237057" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="uil uil-whatsapp"></i></a>  
+            </div>    
+            <div class="bottom-footer">
+                <p>&copy; <span id="currentYear"></span> Amena Mohamed. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
-    <div class="middle-footer">
-        <ul class="footer-menu">
-            <li class="footer_menu_list">
-                <a href="#home">Home</a>
-            </li>
-            <li class="footer_menu_list">
-                <a href="#about">About</a>
-            </li>
-            <li class="footer_menu_list">
-                <a href="#projects">Projects</a>
-            </li>
-            <li class="footer_menu_list">
-                <a href="#contact">Contact</a>
-            </li>
-        </ul>
-    </div>
-    <div class="footer-social-icons">
-        <a href="https://www.linkedin.com/in/amena-dev" class="icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <i class="uil uil-linkedin-alt"></i>
-        </a>
-        <a href="mailto:Amena_mohammed15@outlook.com" class="icon" aria-label="Email">
-            <i class="uil uil-envelope"></i>
-        </a>                
-        <a href="https://github.com/Amena15" class="icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-            <i class="uil uil-github-alt"></i>
-        </a>
-        <a href="https://wa.me/601162237057" class="icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-            <i class="uil uil-whatsapp"></i>
-        </a>  
-    </div>    
-    <div class="bottom-footer">
-        <p>&copy; <a href="#home" style="text-decoration: none;">Amena Mohamed</a> - All rights reserved</p>
-    </div>
-</footer>
-</div>
-<!-- ----- JS Link ----- -->
-<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-<!-- ----- SCROLL REVEAL JS Link----- -->
-<script src="https://unpkg.com/scrollreveal"></script>
-<!-- ----- MAIN JS ----- -->
-<script src="main.js"></script>
+
+    <!-- Scroll to Top -->
+    <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="uil uil-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <script src="main.js" defer></script>
 </body>
 </html>

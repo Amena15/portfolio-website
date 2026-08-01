@@ -1,30 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Thank You</title>
-  <style>
-    body {
-      display: flex;
-      height: 100vh;
-      align-items: center;
-      justify-content: center;
-      font-family: sans-serif;
-      background-color: #f0f8ff;
-    }
-    .message {
-      text-align: center;
-    }
-    .message h1 {
-      color: #00B5E7;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Amena Mohamed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <style>
+        :root {
+            --primary-color: #b185db;
+            --text-color: #5a4b6a;
+            --bg-color: #faf7ff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem;
+        }
+        .message-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(177, 133, 219, 0.15);
+            max-width: 500px;
+            width: 100%;
+            animation: slideUp 0.6s ease-out;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(177, 133, 219, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        h1 { font-size: 1.8rem; margin-bottom: 1rem; color: #2d1b3d; }
+        p { margin-bottom: 2rem; line-height: 1.6; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #b185db 0%, #d4b3ff 100%);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(177, 133, 219, 0.3);
+        }
+    </style>
 </head>
 <body>
-  <div class="message">
-    <h1>Thank you for your message!</h1>
-    <p>I’ll get back to you as soon as possible.</p>
-    <a href="/">Return to homepage</a>
-  </div>
+    <div class="message-box">
+        <div class="icon-circle">
+            <i class="uil uil-check-circle"></i>
+        </div>
+        <h1>Message Sent Successfully!</h1>
+        <p>Thank you for reaching out. I appreciate your interest and will get back to you as soon as possible.</p>
+        <a href="/" class="btn">
+            <i class="uil uil-arrow-left"></i> Return to Portfolio
+        </a>
+    </div>
 </body>
 </html>
