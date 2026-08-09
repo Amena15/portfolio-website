@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================= */
     if (typeof Typed !== 'undefined') {
         new Typed('.typedText', {
-            strings: ['Software Engineer', 'Web Developer', 'Problem Solver', 'CS Student'],
+            strings: ['Software Engineer', 'Backend Developer', 'Full-Stack Developer', 'Problem Solver'],
             loop: true,
             typeSpeed: 80,
             backSpeed: 50,
@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sr.reveal('.skills-box', { interval: 150, origin: 'right' });
         sr.reveal('.contact-info', { origin: 'left', delay: 100 });
         sr.reveal('.contact-form', { origin: 'right', delay: 200 });
+        sr.reveal('.service-card', { interval: 150, origin: 'bottom' });
     }
 
     /* =========================================
@@ -183,30 +184,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Resume Download Handler
-    function handleResumeDownload(e) {
+    // Your Google Drive File ID
+    const RESUME_FILE_ID = '19j9W9Rf8bDGw59tKWprJc8sHFb3egtZM';
+    
+    // URL to just view/preview the PDF in the browser
+    const RESUME_VIEW_URL = `https://drive.google.com/file/d/${RESUME_FILE_ID}/preview`; 
+    
+    // URL to force the browser to download the file
+    const RESUME_DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_FILE_ID}`;
+
+    function handleResumeAction(e) {
         e.preventDefault();
         const btn = e.currentTarget;
-        const icon = btn.querySelector('i');
-        const originalIconClass = icon.className;
         
-        // Loading state
-        icon.className = 'uil uil-spinner uil-spin';
+        // Determine if this is the "View" button or "Download" button based on its ID
+        // The About section button has ID 'downloadResumeBtnAbout' but says "View Resume"
+        const isViewButton = btn.textContent.trim().includes('View'); 
+        
+        const icon = btn.querySelector('i');
+        const originalIconClass = icon ? icon.className : '';
+        
+        // 1. Loading state
+        if (icon) icon.className = 'uil uil-spinner uil-spin';
         btn.disabled = true;
 
-        // Note: Direct Google Drive downloads often face CORS/blocking. 
-        // Opening in a new tab is the most reliable cross-browser method.
-        const driveUrl = 'https://drive.google.com/file/d/1YmnNNmMzOeMHk9B8oHHWg8wJ4MyNlPqI/view?usp=sharing';
-        
+        // 2. Execute action after a short delay (for UX feedback)
         setTimeout(() => {
-            window.open(driveUrl, '_blank');
-            // Reset state
-            icon.className = originalIconClass;
+            if (isViewButton) {
+                // Opens the PDF preview in a new tab
+                window.open(RESUME_VIEW_URL, '_blank');
+            } else {
+                // Forces the download in a new tab
+                window.open(RESUME_DOWNLOAD_URL, '_blank');
+            }
+            
+            // 3. Reset button state
+            if (icon) icon.className = originalIconClass;
             btn.disabled = false;
-        }, 800);
+        }, 600);
     }
 
+    // Attach the same function to both buttons
     document.querySelectorAll('#downloadResumeBtn, #downloadResumeBtnAbout').forEach(btn => {
-        btn.addEventListener('click', handleResumeDownload);
+        btn.addEventListener('click', handleResumeAction);
     });
 
     /* =========================================
@@ -288,54 +308,114 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
        8. GITHUB PROJECTS FETCH
        ========================================= */
-    async function fetchGitHubRepos() {
+    const PROJECTS_PER_PAGE = 6;
+    let currentPage = 1;
+    let isLoading = false;
+    let hasMoreProjects = true;
+
+    function createProjectCard(repo) {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description || 'A software engineering project showcasing clean code and scalable architecture.'}</p>
+            <div class="project-meta">
+                <span><i class="uil uil-brackets-curly"></i> ${repo.language || 'Code'}</span>
+                <span><i class="uil uil-star"></i> ${repo.stargazers_count}</span>
+            </div>
+            <div class="project-links">
+                <a href="${repo.html_url}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                    View Code <i class="uil uil-github-alt"></i>
+                </a>
+            </div>
+        `;
+        return card;
+    }
+
+    async function fetchGitHubRepos(append = false) {
+        if (isLoading || !hasMoreProjects) return;
+        
+        isLoading = true;
+        const showMoreBtn = document.getElementById('showMoreProjectsBtn');
+        
+        // UI: Show loading state on button
+        if (showMoreBtn) {
+            showMoreBtn.disabled = true;
+            showMoreBtn.innerHTML = '<span class="btn-loader"></span> Loading...';
+        }
+
         try {
-            const response = await fetch('https://api.github.com/users/Amena15/repos?sort=updated&direction=desc&per_page=6');
+            const response = await fetch(`https://api.github.com/users/Amena15/repos?sort=updated&direction=desc&per_page=${PROJECTS_PER_PAGE}&page=${currentPage}`);
             if (!response.ok) throw new Error('GitHub API limit or error');
             
             const repos = await response.json();
-            const filteredRepos = repos.filter(repo => !repo.fork && repo.name); // Exclude forks
             
-            projectsContainer.innerHTML = ''; // Clear loader
+            // FILTER: Exclude forks AND exclude the 'Amena15' profile README repo
+            const filteredRepos = repos.filter(repo => !repo.fork && repo.name.toLowerCase() !== 'amena15');
             
-            if (filteredRepos.length === 0) {
+            // Clear loader only on the very first load
+            if (!append) {
+                projectsContainer.innerHTML = ''; 
+            }
+            
+            if (filteredRepos.length === 0 && currentPage === 1) {
                 projectsContainer.innerHTML = '<p class="loader">No public projects found.</p>';
+                hasMoreProjects = false;
+                if (showMoreBtn) showMoreBtn.style.display = 'none';
                 return;
             }
 
+            // Render new projects
             filteredRepos.forEach(repo => {
-                const card = document.createElement('div');
-                card.className = 'project-card';
-                card.innerHTML = `
-                    <h3>${repo.name}</h3>
-                    <p>${repo.description || 'A software engineering project showcasing clean code and scalable architecture.'}</p>
-                    <div class="project-meta">
-                        <span><i class="uil uil-brackets-curly"></i> ${repo.language || 'Code'}</span>
-                        <span><i class="uil uil-star"></i> ${repo.stargazers_count}</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="${repo.html_url}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                            View Code <i class="uil uil-github-alt"></i>
-                        </a>
-                    </div>
-                `;
-                projectsContainer.appendChild(card);
+                projectsContainer.appendChild(createProjectCard(repo));
             });
             
-            // Reveal newly added elements
+            // Animate ONLY the newly added cards
             if (typeof ScrollReveal !== 'undefined') {
-                ScrollReveal().reveal('.project-card', { interval: 150, origin: 'bottom' });
+                ScrollReveal().reveal('.project-card', { interval: 100, origin: 'bottom' });
             }
-            
+
+            // Check if we've reached the end of the repository list
+            // (If GitHub returns fewer items than we requested, there are no more pages)
+            if (repos.length < PROJECTS_PER_PAGE) {
+                hasMoreProjects = false;
+            }
+
         } catch (error) {
             console.error('Failed to load projects:', error);
-            projectsContainer.innerHTML = `
-                <div class="loader" style="flex-direction: column; align-items: center; gap: 1rem;">
-                    <p>⚠️ Failed to load projects. Please check my <a href="https://github.com/Amena15" target="_blank" style="color: var(--primary-color);">GitHub directly</a>.</p>
-                </div>
-            `;
+            if (!append) {
+                projectsContainer.innerHTML = `
+                    <div class="loader" style="flex-direction: column; align-items: center; gap: 1rem;">
+                        <p>⚠️ Failed to load projects. Please check my <a href="https://github.com/Amena15" target="_blank" style="color: var(--primary-color);">GitHub directly</a>.</p>
+                    </div>
+                `;
+            }
+        } finally {
+            isLoading = false;
+            
+            // UI: Reset button state or hide it if no more projects
+            if (showMoreBtn) {
+                if (hasMoreProjects) {
+                    showMoreBtn.style.display = 'inline-flex';
+                    showMoreBtn.disabled = false;
+                    showMoreBtn.innerHTML = 'Show More Projects <i class="uil uil-arrow-down"></i>';
+                } else {
+                    showMoreBtn.style.display = 'none';
+                }
+            }
         }
     }
 
-    fetchGitHubRepos();
+    // Initial Load
+    fetchGitHubRepos(false);
+
+    // Event Listener for "Show More"
+    const showMoreBtn = document.getElementById('showMoreProjectsBtn');
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            currentPage++;
+            fetchGitHubRepos(true); // true = append to existing
+        });
+    }
+
 });

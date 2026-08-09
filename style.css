@@ -357,7 +357,7 @@ body.menu-open {
     padding: 2.5rem;
     border-radius: var(--border-radius);
     box-shadow: 0 8px 30px var(--primary-shadow);
-    height: 100%;
+    height: auto;
     position: relative;
 }
 
@@ -367,9 +367,9 @@ body.menu-open {
 }
 
 .about-btn {
-    position: absolute;
+    position: static;
     bottom: 2rem;
-    right: 2rem;
+    text-align: left; 
 }
 
 .skills-box {
@@ -457,6 +457,26 @@ body.menu-open {
     margin-bottom: 1.5rem;
     display: flex;
     gap: 1rem;
+}
+
+/* Projects "SHOW MORE" action */
+.projects-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+/* Ensure the loader inside the button matches existing loader style */
+.projects-action .btn-loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
 }
 
 /* Contact Form */
@@ -653,6 +673,70 @@ footer {
     border-top-color: var(--primary-color);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
+}
+
+/* =========================================
+   SERVICES SECTION
+   ========================================= */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+    border: 1px solid rgba(177, 133, 219, 0.1);
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px var(--primary-shadow);
+    border-color: var(--primary-color);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(177, 133, 219, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+    transition: all var(--transition-medium);
+}
+
+.service-card:hover .service-icon {
+    background: var(--primary-color);
+    color: var(--color-white);
+    transform: rotateY(180deg); /* Cool 3D flip effect on hover */
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    color: var(--text-color-primary);
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+}
+
+/* Mobile adjustment for services grid */
+@media (max-width: 540px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =========================================

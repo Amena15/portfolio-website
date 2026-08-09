@@ -32,6 +32,7 @@
                 <ul class="nav-menu" id="navMenu">
                     <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li> <!-- ADDED -->
                     <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -100,6 +101,14 @@
                         <div class="about-info">
                             <h3>Introduction</h3>
                             <p>I am a dedicated Computer Science student and aspiring software engineer with a strong foundation in software engineering principles such as modular design, clean code practices, and efficient algorithm development. I enjoy solving complex problems, collaborating in team environments, and applying theoretical knowledge to real-world challenges using modern development tools and frameworks.</p>
+                            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Key Achievements</h3>
+                            <p>
+                                <i class="uil uil-medal"></i> Dean's List — All Trimesters<br>
+                                <i class="uil uil-file-alt"></i> Research Paper Accepted & Presented at CITIC 2026<br>
+                                <i class="uil uil-award"></i> Silver Medal — iNVENTX Invention Competition 2026<br>
+                                <i class="uil uil-processor"></i> Developed VisSpec — AI-Powered Requirements Validation System
+                            </p>
+
                             <div class="about-btn">
                                 <button class="btn btn-primary" id="downloadResumeBtnAbout">
                                     View Resume <i class="uil uil-file-alt" aria-hidden="true"></i>
@@ -136,14 +145,67 @@
                 </div>
             </section>
 
+            <!-- SERVICES SECTION -->
+            <section class="section" id="services">
+                <div class="top-header">
+                    <h2>My Services</h2>
+                    <span>Comprehensive solutions tailored to your needs</span>
+                </div>
+                <div class="services-container">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="uil uil-web-grid" aria-hidden="true"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Building responsive, user-centered, and scalable web applications using modern frontend and backend technologies like React, Django, and FastAPI.</p>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="uil uil-brackets-curly" aria-hidden="true"></i>
+                        </div>
+                        <h3>Backend & API Development</h3>
+                        <p>Designing robust RESTful APIs, database architectures (SQL/NoSQL), and seamless third-party integrations for scalable software solutions.</p>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="uil uil-robot" aria-hidden="true"></i>
+                        </div>
+                        <h3>AI & Data Integration</h3>
+                        <p>Leveraging LLMs, NLP, and tools like the Gemini API to build intelligent features, automate workflows, and create data-driven applications.</p>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="uil uil-analysis" aria-hidden="true"></i>
+                        </div>
+                        <h3>Software Engineering</h3>
+                        <p>Providing expertise in clean code practices, system architecture (MVC), Agile methodologies, testing, and requirements engineering.</p>
+                    </div>
+                </div>
+            </section>
+
             <!-- PROJECTS SECTION -->
             <section class="section" id="projects">
                 <div class="top-header">
                     <h2>My Projects</h2>
                     <span>Recent work fetched from GitHub</span>
                 </div>
+                
                 <div id="projects-container" class="project-container">
                     <div class="loader" aria-label="Loading projects"></div>
+                </div>
+                
+                <!-- NEW: Show More Button Container -->
+                <div class="projects-action">
+                    <button id="showMoreProjectsBtn" class="btn btn-secondary" style="display: none;">
+                        Show More Projects <i class="uil uil-arrow-down"></i>
+                    </button>
                 </div>
             </section>
 
@@ -205,6 +267,7 @@
                 <ul class="footer-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li> <!-- ADDED -->
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
